@@ -1,0 +1,498 @@
+/* =====================================================
+   PALETA PERSONALIZABLE
+   Cambia estos valores para modificar todos los colores
+   ===================================================== */
+:root {
+    /* Fondo de la página */
+    --fondo-1: #efe9fb;
+    --fondo-2: #e3f4f1;
+
+    /* Menú lateral */
+    --primario: #2a1f55;
+    --primario-hover: #3b2d73;
+    --submenu: #1d1540;
+    --menu-texto: #c9c2e6;
+
+    /* Acentos */
+    --secundario: #7c3aed;       /* botones, encabezados de tabla */
+    --secundario-oscuro: #6d28d9;
+    --acento: #0d9488;           /* borde de la tarjeta, detalles */
+
+    /* Contenedores */
+    --tarjeta: #ffffff;
+    --paso-fondo: #faf7ff;
+    --borde: #e2dcf3;
+    --resaltado-fila: #ede9fe;
+    --resaltado-pivote: #fde68a;
+
+    /* Texto */
+    --texto: #2d2a3e;
+    --texto-suave: #6b6785;
+    --blanco: #ffffff;
+
+    /* Mensajes */
+    --exito-fondo: #d1fae5;
+    --exito-borde: #6ee7b7;
+    --aviso-fondo: #fef3c7;
+    --aviso-borde: #fcd34d;
+    --error-fondo: #fee2e2;
+    --error-borde: #fca5a5;
+    --info-fondo: #ede9fe;
+    --info-borde: #c4b5fd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--fondo-1), var(--fondo-2));
+    background-attachment: fixed;
+    background-color: var(--fondo-1);
+    color: var(--texto);
+}
+
+.contenedor {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 300px;
+    background: linear-gradient(180deg, var(--primario), var(--submenu));
+    color: var(--blanco);
+    padding: 24px 0;
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin: 0 20px 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--acento);
+    letter-spacing: 0.5px;
+}
+
+.menu-btn {
+    width: 100%;
+    background-color: transparent;
+    color: var(--blanco);
+    border: none;
+    border-left: 4px solid transparent;
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.menu-btn:hover {
+    background-color: var(--primario-hover);
+    border-left: 4px solid var(--acento);
+}
+
+.submenu {
+    display: none;
+    background-color: var(--submenu);
+}
+
+.ejercicio-btn {
+    width: 100%;
+    background-color: transparent;
+    color: var(--menu-texto);
+    border: none;
+    padding: 10px 20px 10px 40px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.ejercicio-btn:hover {
+    color: var(--blanco);
+}
+
+.ejercicio-btn.activo {
+    color: var(--blanco);
+    background-color: var(--primario-hover);
+    box-shadow: inset 4px 0 0 var(--acento);
+    font-weight: bold;
+}
+
+/* Contenido Principal */
+.contenido-principal {
+    flex: 1;
+    min-width: 0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.tarjeta-ejercicio {
+    background-color: var(--tarjeta);
+    border-radius: 14px;
+    border-top: 6px solid var(--acento);
+    padding: 30px;
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: 0 10px 30px rgba(42, 31, 85, 0.15);
+}
+
+/* Estilos de Bienvenida */
+.bienvenida h1 {
+    text-align: center;
+    color: var(--secundario);
+    margin-top: 50px;
+}
+
+.bienvenida p {
+    text-align: center;
+    color: var(--texto-suave);
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+/* Clases utilitarias */
+.texto-centrado {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.titulo-ejercicio {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primario);
+}
+
+.input-corto {
+    width: 80px !important;
+}
+
+/* Formularios */
+.controles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-input label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: var(--primario);
+}
+
+.grupo-input input, .grupo-input select {
+    padding: 8px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    width: 150px;
+}
+
+.btn-ejecutar {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    height: 35px;
+    margin-top: 24px;
+    transition: background 0.2s;
+}
+
+.btn-ejecutar:hover {
+    background-color: var(--secundario-oscuro);
+}
+
+.btn-secundario {
+    background-color: var(--acento);
+}
+
+.btn-secundario:hover {
+    background-color: #0f766e;
+}
+
+.sin-margen {
+    margin-top: 0;
+}
+
+/* Entrada de la matriz */
+.entrada-matriz {
+    overflow-x: auto;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.tabla-entrada {
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 6px;
+}
+
+.tabla-entrada th {
+    font-size: 13px;
+    color: var(--secundario);
+    padding: 2px 4px;
+}
+
+.tabla-entrada input {
+    width: 70px;
+    padding: 8px 4px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    text-align: center;
+    background-color: var(--paso-fondo);
+}
+
+.tabla-entrada input:focus {
+    outline: 2px solid var(--acento);
+    border-color: var(--acento);
+}
+
+.tabla-entrada .sep-aug-entrada {
+    border-left: 3px solid var(--primario);
+    padding-left: 8px;
+}
+
+/* Tablas de resultados e historial */
+.titulo-resultados {
+    text-align: center;
+    margin: 30px 0 15px 0;
+    color: var(--primario);
+}
+
+.tabla-historial {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.tabla-historial th {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 12px;
+    border: 1px solid var(--borde);
+    text-align: center;
+}
+
+.tabla-historial td {
+    padding: 12px;
+    border: 1px solid var(--borde);
+    text-align: center;
+    color: var(--texto);
+}
+
+.tabla-historial tbody tr:nth-child(even) {
+    background-color: var(--paso-fondo);
+}
+
+/* Pasos del algoritmo */
+.paso {
+    border: 1px solid var(--borde);
+    border-left: 5px solid var(--secundario);
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    background-color: var(--paso-fondo);
+}
+
+.paso-cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.paso-num {
+    background-color: var(--primario);
+    color: var(--blanco);
+    border-radius: 12px;
+    padding: 2px 12px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.paso-op {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: var(--secundario);
+}
+
+.paso-desc {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.matriz-wrap {
+    overflow-x: auto;
+}
+
+.matriz-tabla {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.matriz-tabla td {
+    padding: 7px 12px;
+    min-width: 55px;
+    border: 1px solid var(--borde);
+    text-align: center;
+    background-color: var(--blanco);
+    font-family: 'Courier New', monospace;
+}
+
+.matriz-tabla th.etq-fila {
+    font-size: 12px;
+    color: var(--texto-suave);
+    padding: 0 8px;
+    font-weight: normal;
+}
+
+.matriz-tabla td.sep-aug {
+    border-left: 3px solid var(--primario);
+}
+
+.matriz-tabla tr.fila-resaltada td {
+    background-color: var(--resaltado-fila);
+}
+
+.matriz-tabla td.celda-pivote {
+    background-color: var(--resaltado-pivote);
+    font-weight: bold;
+}
+
+/* Mensajes y resultado final */
+.caja-resultado {
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+    text-align: center;
+    border: 1px solid var(--info-borde);
+    background-color: var(--info-fondo);
+}
+
+.caja-resultado.exito {
+    border-color: var(--exito-borde);
+    background-color: var(--exito-fondo);
+}
+
+.caja-resultado.aviso {
+    border-color: var(--aviso-borde);
+    background-color: var(--aviso-fondo);
+}
+
+.caja-resultado.error {
+    border-color: var(--error-borde);
+    background-color: var(--error-fondo);
+}
+
+.caja-resultado h4 {
+    margin-bottom: 6px;
+    color: var(--primario);
+}
+
+.leyenda {
+    font-size: 13px;
+    text-align: center;
+    color: var(--texto-suave);
+    margin-bottom: 15px;
+}
+
+.leyenda .muestra {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    vertical-align: middle;
+    border: 1px solid #aaa;
+    margin: 0 4px 0 10px;
+}
+
+.muestra.pivote { background-color: var(--resaltado-pivote); }
+.muestra.fila { background-color: var(--resaltado-fila); }
+
+/* Comprobación A · A⁻¹ = I */
+.comprobacion-fila {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.comprobacion-signo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--primario);
+}
+
+.detalle-resumen {
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--secundario);
+    margin: 10px 0;
+}
+
+details .tabla-historial td {
+    padding: 8px;
+    font-size: 14px;
+}
+
+/* Historial guardado (localStorage) */
+.zona-historial {
+    margin-top: 40px;
+    padding-top: 10px;
+    border-top: 2px dashed var(--borde);
+}
+
+.tabla-guardados td.resumen {
+    text-align: left;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+}
+
+.btn-mini {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.btn-mini:hover {
+    background-color: var(--secundario-oscuro);
+}
+
+.btn-mini.peligro {
+    background-color: #dc2626;
+}
+
+.btn-mini.peligro:hover {
+    background-color: #b91c1c;
+}
+
+@media (max-width: 800px) {
+    .contenedor { flex-direction: column; }
+    .sidebar { width: 100%; }
+    .contenido-principal { padding: 15px; }
+}

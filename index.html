@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Álgebra Lineal</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="contenedor">
+        <!-- Menú Lateral -->
+        <aside class="sidebar">
+            <h2>Álgebra Lineal</h2>
+
+            <div class="menu-item">
+                <button class="menu-btn">1. Sistemas Lineales</button>
+                <div class="submenu">
+                    <button class="ejercicio-btn" data-ejercicio="sis1">1.1 Método de Gauss-Jordan</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <button class="menu-btn">2. Matriz Inversa</button>
+                <div class="submenu">
+                    <button class="ejercicio-btn" data-ejercicio="inv1">2.1 Inversa con [A | I]</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Área de visualización del ejercicio -->
+        <main class="contenido-principal">
+            <section id="area-ejercicio" class="tarjeta-ejercicio bienvenida">
+                <h1>ESTRUCTURAS DE INFORMACION 2 (MATRICES POR GAUSS JORDAN)</h1>
+                <p>Resuelve sistemas de ecuaciones y calcula matrices inversas viendo cada operación.<br>Elige un módulo del menú lateral para comenzar.</p>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
